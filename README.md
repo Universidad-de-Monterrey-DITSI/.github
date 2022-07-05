@@ -4,7 +4,7 @@
 La version de Python que se usa para ejecutar los ETLs es la `3.6.9` por lo que deben asegurarse que las liberias que utilizan funcionen con esa version.
 
 ## Creacion de repositorio
-Al crear el repositorio utilizar el prefijo "**etl_**" y sustituir por "**_**" los espacios del nombre del proyecto. Ejemplo: **etl_segmentacion_de_condicionados**
+Al crear el repositorio utilizar el prefijo "**etl_**", sustituir por "**_**" los espacios del nombre del proyecto y en minusculas. Ejemplo: **etl_segmentacion_de_condicionados**
 
 ## Archivos a excluir en .gitignore
 Excluir todos los archivos que no sean necesarios para la ejecucion del etl, incluyendo archivos con informacion sensible. Ejemplo: Ambientes virtuales, carpetas con cache, carpetas con archivos generados por la ejecucion del etl, archivos de configuracion.
@@ -85,3 +85,8 @@ if __name__ == '__main__':
     # app.py contiene un metodo run() donde esta la logica del ETL.
     app.run()
 ```
+
+## Creacion de tablas
+Si llegara a ser necesario crear tablas en el SQL Server, se debera de incluir un archivo con un script que contenga los queries para la creacion de las tablas. Este archivo se tomara tal cual esta y se ejecutara en productivo por lo que deben asegurar que no contenga errores.
+* La nomenclatura de las tablas debera ser la siguiente: 6 letras para identificar a que ETL corresponde, seguido por un "**_**" y el nombre de la tabla. Los nombres de las tablas deben ir en mayusculas.
+* Incluir antes de cada `CREATE TABLE` un comentario indicando una breve descripcion de la tabla y que datos se van a almacenar.
